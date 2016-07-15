@@ -21,8 +21,10 @@ angular.module("storeApp", ['ui.router'])
     url: "/toothcare",
     templateUrl: './templates/toothcare.html'
   })
-  .state("checkout", {
-    url: "/checkout",
-    templateUrl: './templates/checkout.html'
-  })
+  .state("cart", {
+    url: "/cart",
+    templateUrl: './templates/cart.html'
+  });
+
+  $urlRouterProvider.otherwise('/')
 });

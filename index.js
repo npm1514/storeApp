@@ -3,8 +3,8 @@ bodyParser  = require('body-parser'),
 cors        = require('cors'),
 mongoose    = require('mongoose');
 
-var widgetCtrl = require('./widgetCtrl');
-var cartCtrl = require('./cartCtrl');
+var widgetCtrl = require('./controllers/widgetCtrl');
+var cartCtrl = require('./controllers/cartCtrl');
 
 var app = express();
 

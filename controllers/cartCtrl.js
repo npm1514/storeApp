@@ -1,9 +1,9 @@
-var widgetModel = require('./widgetModel.js');
+var cartModel = require('./../models/cartModel.js');
 
 module.exports = {
   create: function(req, res) {
-    var widget = new widgetModel(req.body);
-    widget.save(function(err, result){
+    var cart = new cartModel(req.body);
+    cart.save(function(err, result){
       if (err) {
         res.send(err);
       }
@@ -11,8 +11,9 @@ module.exports = {
     });
   },
   read: function(req, res) {
-    widgetModel
+    cartModel
     .find(req.query)
+    .populate('items')
     .exec(function (err, result) {
       if (err) {
         res.send(err);
@@ -21,7 +22,7 @@ module.exports = {
     });
   },
   getOne: function(req, res) {
-    widgetModel
+    cartModel
     .findById(req.params.id)
     .exec(function (err, result) {
       if (err) {
@@ -31,7 +32,7 @@ module.exports = {
     });
   },
   update: function(req, res){
-    widgetModel
+    cartModel
     .findByIdAndUpdate(req.params.id, req.body, function(err, result){
       if (err) {
         res.send(err);
@@ -40,7 +41,7 @@ module.exports = {
     });
   },
   delete: function(req, res){
-    widgetModel
+    cartModel
     .findByIdAndRemove(req.params.id, req.body, function(err, result){
       if (err) {
         res.send(err);

@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var cartModel = new mongoose.Schema({
-    name: {type: String},
-    totalCost: {type: String},
+    totalCost: {type: Number, default: 0},
     items: [{type: Schema.Types.ObjectId, ref: 'Widget'}]
 });
 
